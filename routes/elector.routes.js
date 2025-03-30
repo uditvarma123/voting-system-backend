@@ -47,7 +47,7 @@ router.delete('/delete-candidate/:id',checkLoginToken,async (req,res)=>{
         await candidateModel.findByIdAndDelete(req.params.id);
         res.status(200).send({message : "Candidate deleted successfully"});
     }catch(err){
-        console.log(err);
+        console.log("error while deleting",err);
         res.status(500).send({message : err.message});
     }
 })
